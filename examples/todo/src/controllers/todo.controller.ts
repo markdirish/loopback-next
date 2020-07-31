@@ -47,6 +47,7 @@ export class TodoController {
     if (todo.remindAtAddress) {
       const geo = await this.geoService.geocode(todo.remindAtAddress);
 
+      /* istanbul ignore next */
       if (!geo[0]) {
         // address not found
         throw new HttpErrors.BadRequest(
